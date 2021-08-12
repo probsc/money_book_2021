@@ -9,6 +9,14 @@ class AppDrawer extends StatelessWidget {
   /// コンストラクタ
   const AppDrawer({Key? key}) : super(key: key);
 
+  /// アプリアイコン
+  static final _appIcon = Image.asset(
+    'images/icon.png',
+    fit: BoxFit.contain,
+    width: 64,
+    height: 64,
+  );
+
   @override
   Widget build(BuildContext context) {
     // タイトルテキストのテーマ ※ダークテーマ対応のために動的に取得
@@ -18,20 +26,17 @@ class AppDrawer extends StatelessWidget {
       width: 280,
       child: Drawer(
         child: ListView(
+          padding: EdgeInsets.zero,
           children: [
             // アプリタイトル
             SizedBox(
-              height: 80,
+              height: 130,
               child: DrawerHeader(
                 decoration:
                     BoxDecoration(color: Theme.of(context).primaryColor),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.savings_outlined,
-                      color: titleStyle?.color,
-                    ),
-                    const SizedBox(width: 8),
+                    _appIcon,
                     Text(
                       appTitle,
                       style: titleStyle,
@@ -63,7 +68,7 @@ class AppDrawer extends StatelessWidget {
                 var info = await PackageInfo.fromPlatform();
                 showAboutDialog(
                   context: context,
-                  applicationIcon: const Icon(Icons.savings_outlined),
+                  applicationIcon: _appIcon,
                   applicationName: appTitle,
                   applicationVersion: info.version,
                   applicationLegalese: '© 2021 nanairo inc.',

@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:money_book_2021/home_page.dart';
 
 /// アプリ名
-const appTitle = 'お小遣い帳アプリ';
+const appTitle = 'おこづかい帳';
 
 /// エントリポイント
 void main() {
@@ -23,7 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: appTitle,
-      theme: ThemeData.light(),
+      // プライマリカラーのみ変更
+      theme: new ThemeData.light().copyWith(
+        primaryColor: const Color.fromARGB(255, 102, 143, 255),
+      ),
       darkTheme: ThemeData.dark(),
       // MaterialApp で日本語対応をサポート
       localizationsDelegates: [
