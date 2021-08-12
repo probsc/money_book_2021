@@ -42,23 +42,23 @@ class AppDrawer extends StatelessWidget {
             ),
             // 「一覧」メニュー
             _getPageMenu(
-              context,
-              '一覧',
               Icons.format_list_bulleted,
+              '一覧',
+              context,
               () => HomePage(),
             ),
             // 「グラフ」メニュー
             _getPageMenu(
-              context,
-              'グラフ',
               Icons.pie_chart_outlined,
+              'グラフ',
+              context,
               () => GraphPage(),
             ),
             const Divider(color: Colors.black),
             // 「アプリ情報」
             _getMenu(
-              'アプリ情報',
               Icons.info_outlined,
+              'アプリ情報',
               () async {
                 var info = await PackageInfo.fromPlatform();
                 showAboutDialog(
@@ -85,7 +85,7 @@ class AppDrawer extends StatelessWidget {
   }
 
   /// ドロワーメニューを返す
-  Widget _getMenu(String label, IconData icon, VoidCallback onTapped) {
+  Widget _getMenu(IconData icon, String label, VoidCallback onTapped) {
     return Container(
       child: ListTile(
         leading: Icon(icon),
@@ -96,11 +96,11 @@ class AppDrawer extends StatelessWidget {
   }
 
   /// ページ遷移ドロワーメニューを返す
-  Widget _getPageMenu(BuildContext context, String label, IconData icon,
+  Widget _getPageMenu(IconData icon, String label, BuildContext context,
       ValueGetter<Widget> page) {
     return _getMenu(
-      label,
       icon,
+      label,
       () async => await Navigator.pushReplacement(
         context,
         PageRouteBuilder(pageBuilder: (c, a1, a2) => page()),
