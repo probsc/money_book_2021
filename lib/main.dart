@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:money_book_2021/home_page.dart';
 
@@ -7,6 +8,12 @@ const appTitle = 'お小遣い帳アプリ';
 
 /// エントリポイント
 void main() {
+  // 画面向きを縦に固定
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
+
   runApp(MyApp());
 }
 
