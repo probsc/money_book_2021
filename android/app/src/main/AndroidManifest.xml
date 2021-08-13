@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.nanairo_inc.money_book_2021">
    <application
-        android:label="money_book_2021"
+        android:label="おこづかい帳"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
