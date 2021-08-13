@@ -76,7 +76,7 @@ class AppDrawer extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 16),
                       child: Text(
-                          '本アプリは、インターシップでの題材用のお小遣い帳アプリです。登録した使用履歴をグラフ表示できます。',
+                          'このアプリはインターシップでの題材用の「$appTitleアプリ」です。',
                           style: TextStyle(fontSize: 14)),
                     )
                   ],
