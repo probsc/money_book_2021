@@ -52,6 +52,12 @@ class _EditPageState extends State<EditPage> {
   /// 「金額」検証用フォームキー
   final _keyPrice = GlobalKey<FormState>();
 
+  /// 「タイトル」フォーカスノード
+  final FocusNode _focusTitle = FocusNode();
+
+  /// 「金額」フォーカスノード
+  final FocusNode _focusPrice = FocusNode();
+
   @override
   void initState() {
     super.initState();
@@ -148,9 +154,14 @@ class _EditPageState extends State<EditPage> {
                           hintText: '例）電車代',
                           prefixIcon: Icon(Icons.edit_outlined),
                         ),
+                        focusNode: _focusTitle,
                         validator: (value) => value == null || value.isEmpty
                             ? 'タイトルを入力してください'
                             : null,
+                        textInputAction: TextInputAction.next,
+                        onFieldSubmitted: (term) {
+                          _focusTitle.changeFocus(context, _focusPrice);
+                        },
                       ),
                     ),
                   ],
@@ -171,6 +182,7 @@ class _EditPageState extends State<EditPage> {
                           hintText: '例）1000',
                           prefixIcon: Icon(Icons.paid_outlined),
                         ),
+                        focusNode: _focusPrice,
                         validator: (value) => value == null || value.isEmpty
                             ? '金額を入力してください'
                             : null,
