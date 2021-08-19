@@ -44,6 +44,15 @@ extension MapExtension on Map<String, dynamic> {
   }
 }
 
+/// FocusNode 関連の拡張メソッド
+extension FocusNodeExtension on FocusNode {
+  /// 指定キーの DateTime 要素を返す
+  void changeFocus(BuildContext context, FocusNode next) {
+    this.unfocus();
+    FocusScope.of(context).requestFocus(next);
+  }
+}
+
 /// 種別列挙体の拡張メソッド
 extension CategoriesExtension on Categories {
   /// 分類列挙体の文字列を返す
