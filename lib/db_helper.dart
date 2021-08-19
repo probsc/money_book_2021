@@ -45,7 +45,7 @@ from
   $_tableRecords
 order by
   date desc
-  , updated_at desc;
+  , title;
 ''')).map((n) => Records.fromMap(n)).toList();
   }
 

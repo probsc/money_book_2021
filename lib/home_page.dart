@@ -8,8 +8,8 @@ import 'package:money_book_2021/records.dart';
 
 /// ホーム画面
 class HomePage extends StatefulWidget {
-  /// コンストラクタ
-  HomePage({Key? key}) : super(key: key);
+  /// コンストラクタ - スクロール位置保持のために PageStorageKey を指定
+  HomePage() : super(key: PageStorageKey<String>('home'));
 
   @override
   _HomePageState createState() => _HomePageState();
